@@ -1,0 +1,8 @@
+#alias for spectacle
+alias \
+spec="export $(dbus-launch) && spectacle" \
+vim="nvim" \
+na="cp $HOME/Documents/vimtemplates/stdtex $PWD/ && mv $PWD/stdtex" \
+nj="cp $HOME/programming/sdu/javatemp $PWD/ && mv $PWD/javatemp" \
+cj="javac *.java" \
+oj="nvim -p *.java" \

@@ -1,0 +1,58 @@
+           general {
+		   output_format = "i3bar"
+		colors = true
+        interval = 1
+        colors = true
+        color_good = "#7C964B"
+        color_degraded = "#CC9221"
+                color_bad = "#DA3E3E"
+
+           }
+
+
+           order += "wireless wlp2s0"
+           order += "battery 0"
+           order += "disk /"
+           order += "memory"
+           order += "load"
+           order += "tztime local"
+
+           wireless wlp2s0 {
+                   format_up = "%essid%quality, %bitrate"
+                   format_down = "down"
+           }
+
+
+           battery 0 {
+                   format = "%status %percentage "
+                   format_down = "No battery"
+                   status_chr = "CHR"
+                   status_bat = "BAT"
+                   status_unk = "? UNK"
+                   status_full = "FULL"
+                   path = "/sys/class/power_supply/BAT%d/uevent"
+                   low_threshold = 10
+           }
+
+
+           tztime local {
+                   format = "%d-%m/%Y %H:%M:%S"
+                   hide_if_equals_localtime = false
+           }
+
+
+           load {
+                   format = "Load: %5min"
+           }
+
+
+           memory {
+                   format = "Mem: %used"
+                   threshold_degraded = "10%"
+                   format_degraded = "MEMORY: %free"
+           }
+
+           disk "/" {
+                   format = "Disk space: %free"
+           }
+
